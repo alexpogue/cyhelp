@@ -21,7 +21,11 @@
           var classID = $('#classIDInput').val();
           var time = $('#timeInput').val();
           myDataRef.push({name: name, phone: phone, loc: loc, classID: classID, time: time});
-          $('#messageInput').val('');
+          $('#nameInput').val('');
+          $('#phoneInput').val('');
+          $('#locInput').val('');
+          $('#classIDInput').val('');
+          $('#timeInput').val('');
         }
       });
       myDataRef.on('child_added', function(snapshot) {
