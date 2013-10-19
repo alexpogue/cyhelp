@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  </head>
+  <body>
+    <div id='messagesDiv'></div>
+    <input type='text' id='nameInput' placeholder='Name'>
+    <input type='text' id='phoneInput' placeholder='Phone'>
+    <input type='text' id='locInput' placeholder='Location'>
+    <input type='text' id='classIDInput' placeholder='Class'>
+    <input type='text' id='timeInput' placeholder='Time'>
+    <script>
+      var myDataRef = new Firebase('https://cyhelp.firebaseIO.com/');
+      $('#timeInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var name = $('#nameInput').val();
+          var phone = $('#phoneInput').val();
+          var loc = $('#locInput').val();
+          var classID = $('#classIDInput').val();
+          var time = $('#timeInput').val();
+          myDataRef.push({name: name, phone: phone, loc: loc, classID: classID, time: time});
+          $('#messageInput').val('');
+        }
+      });
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+        displayChatMessage(message.name, message.phone, message.loc, message.classID, message.time);
+      });
+      function displayChatMessage(name, phone, loc, classID, time) {
+        $('<div/>').text(phone).prepend($('<b/>').text(name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
+  </body>
+</html>
