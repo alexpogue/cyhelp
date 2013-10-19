@@ -7,61 +7,74 @@
 </head>
 	
 <body>
-	<form id="helpme_information" method="post">
-	
-		<label for="phone" class="description">Phone Number</label>
-		<div id="phone" class="">
-			<div>
-				<input id="phone_0" name="phone_0" class="inline" size="3" maxlength="3" value="" type="text" /> -
-				<label for="phone_0">(###)</label>
-			</div>
-			<div>
-				<input id="phone_1" name="phone_1" class="inline" size="3" maxlength="3" value="" type="text" /> -
-				<label for="phone_1">###</label>
-			</div>
-			<div>
-				<input id="phone_2" name="phone_2" class="inline" size="4" maxlength="4" value="" type="text" />
-				<label for="phone_2">####</label>
-			</div>
-		</div>
+	<div id="head"></div>
+	<div id="form-body">
+		<form id="cyhelp_default" method="post">
 		
-		<label for="name" class="description">Name</label>
-		<div id="name">
-			<input id="name" name="name" class="" type="text" maxlength="255" value="" /> 
-		</div>
-		
-		<label for="location" class="description">Location</label>
-		<div id="location">
-			<input id="location" name="location" class="" type="text" maxlength="255" value="" />
-		</div>
-		
-		<label for="class_id" class="description">Class ID</label>
-		<div id="class_id">
-			<input id="class_id" name="class_id" class="" type="text" maxlength="255" value="" />
-		</div>
-		
-		<label for="time" class="description">Time</label>
-		<div id="time" class="inline">
-			<div>
-				<input id="hours" name="hours" class="" size="2" type="text" maxlength="2" value=""/> : 
-				<label for="hours">HH</label>
+			<div class="form_item">
+				<label for="phone" class="description">Phone Number</label>
+				<div id="phone" class="multifield_container">
+					<div>
+						<input id="phone_0" name="phone_0" class="" size="3" maxlength="3" value="" type="text" /> -
+						<label for="phone_0" class="small_description">(###)</label>
+					</div>
+					<div>
+						<input id="phone_1" name="phone_1" class="" size="3" maxlength="3" value="" type="text" /> -
+						<label for="phone_1">###</label>
+					</div>
+					<div>
+						<input id="phone_2" name="phone_2" class="" size="4" maxlength="4" value="" type="text" />
+						<label for="phone_2">####</label>
+					</div>
+				</div>
 			</div>
-			<div>
-				<input id="minutes" name="minutes" class="" size="2" type="text" maxlength="2" value=""/> : 
-				<label for="minutes">MM</label>
+			
+			<div class="form_item">
+				<label for="name" class="description">Name</label>
+				<div id="name">
+					<input id="name" name="name" class="" type="text" maxlength="255" value="" /> 
+				</div>
 			</div>
-			<div>
-				<input id="seconds" name="seconds" class="" size="2" type="text" maxlength="2" value=""/>
-				<label for="seonds">SS</label>
+			
+			<div class="form_item">
+				<label for="location" class="description">Location</label>
+				<div id="location">
+					<input id="location" name="location" class="" type="text" maxlength="255" value="" />
+				</div>
 			</div>
-			<div>
-				<select style="width:4em" id="ampm" name="ampm" class="">
-					<option value="AM">AM</option>
-					<option value="PM">PM</option>
-				</select>
-				<label>AM/PM</label>
+			
+			<div class="form_item">
+				<label for="class_id" class="description">Class ID</label>
+				<div id="class_id">
+					<input id="class_id" name="class_id" class="" type="text" maxlength="255" value="" />
+				</div>
 			</div>
-		</div>	
-	</form>
+			
+			<div class="form_item">
+				<label for="time" class="description">Time</label>
+				<div id="time" class="multifield_container">
+					<div>
+						<input id="hours" name="hours" class="" size="2" type="text" maxlength="2" value="" /> : 
+						<label for="hours" class="small_description">HH</label>
+					</div>
+					<div>
+						<input id="minutes" name="minutes" class="" size="2" type="text" maxlength="2" value="" /> : 
+						<label for="minutes" class="small_description">MM</label>
+					</div>
+					<div>
+						<input id="seconds" name="seconds" class="" size="2" type="text" maxlength="2" value="" />
+						<label for="seonds" class="small_description">SS</label>
+					</div>
+					<div>
+						<select style="width:4em" id="ampm" name="ampm" class="">
+							<option value="AM">AM</option>
+							<option value="PM">PM</option>
+						</select>
+						<label>AM/PM</label>
+					</div>
+				</div>	
+			</div>
+		</form>
+	</div>
 </body>
 </html>
