@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/cyhelp.css" />
 <title>CyHelp</title>
 </head>
-	
+
 <body>
 	<div id="head"></div>
 	<div id="form-body">
@@ -15,62 +15,38 @@
 				<label for="phone" class="description">Phone Number</label>
 				<div id="phone" class="multifield_container">
 					<div>
-						<input id="phone_0" name="phone_0" class="" size="3" maxlength="3" value="" type="text" /> -
-						<label for="phone_0" class="small_description">(###)</label>
-					</div>
-					<div>
-						<input id="phone_1" name="phone_1" class="" size="3" maxlength="3" value="" type="text" /> -
-						<label for="phone_1">###</label>
-					</div>
-					<div>
-						<input id="phone_2" name="phone_2" class="" size="4" maxlength="4" value="" type="text" />
-						<label for="phone_2">####</label>
+						<input id="phone_0" name="phone_0" class="" size="3" maxlength="3" value="" placeholder="(###)" type="text" /> - 
+						<input id="phone_1" name="phone_1" class="" size="3" maxlength="3" value="" placeholder="###" type="text" /> - 
+						<input id="phone_2" name="phone_2" class="" size="4" maxlength="4" value="" placeholder="####" type="text" />
 					</div>
 				</div>
 			</div>
 			
 			<div class="form_item">
 				<label for="name" class="description">Name</label>
-				<div id="name">
-					<input id="name" name="name" class="" type="text" maxlength="255" value="" /> 
-				</div>
+				<input id="name" name="name" class="" type="text" maxlength="255" value="" /> 
 			</div>
 			
 			<div class="form_item">
 				<label for="location" class="description">Location</label>
-				<div id="location">
-					<input id="location" name="location" class="" type="text" maxlength="255" value="" />
-				</div>
+				<input id="location" name="location" class="" type="text" maxlength="255" value="" />
 			</div>
 			
 			<div class="form_item">
 				<label for="class_id" class="description">Class ID</label>
-				<div id="class_id">
-					<input id="class_id" name="class_id" class="" type="text" maxlength="255" value="" />
-				</div>
+				<input id="class_id" name="class_id" class="" type="text" maxlength="255" value="" />
 			</div>
 			
 			<div class="form_item">
 				<label for="time" class="description">Time</label>
 				<div id="time" class="multifield_container">
 					<div>
-						<input id="hours" name="hours" class="" size="2" type="text" maxlength="2" value="" /> : 
-						<label for="hours" class="small_description">HH</label>
-					</div>
-					<div>
-						<input id="minutes" name="minutes" class="" size="2" type="text" maxlength="2" value="" /> : 
-						<label for="minutes" class="small_description">MM</label>
-					</div>
-					<div>
-						<input id="seconds" name="seconds" class="" size="2" type="text" maxlength="2" value="" />
-						<label for="seonds" class="small_description">SS</label>
-					</div>
-					<div>
+						<input id="hours" name="hours" class="" size="2" type="text" maxlength="2" placeholder="HH" value="" /> : 
+						<input id="minutes" name="minutes" class="" size="2" type="text" maxlength="2" placeholder="MM" value="" />
 						<select style="width:4em" id="ampm" name="ampm" class="">
 							<option value="AM">AM</option>
 							<option value="PM">PM</option>
 						</select>
-						<label>AM/PM</label>
 					</div>
 				</div>	
 			</div>
