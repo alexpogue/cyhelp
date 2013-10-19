@@ -4,6 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="css/cyhelp.css" />
 <title>CyHelp</title>
+<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
 </head>
 
 <body>
@@ -41,10 +43,8 @@
 				<label for="time" class="description">Time</label>
 				<div id="time" class="multifield_container">
 					<div>
-<<<<<<< HEAD
 						<input id="hours" name="hours" class="" size="2" type="text" maxlength="2" placeholder="HH" value="" /> : 
 						<input id="minutes" name="minutes" class="" size="2" type="text" maxlength="2" placeholder="MM" value="" />
-=======
 						<input id="hours" name="hours" class="" size="2" type="text" maxlength="2" value="" /> : 
 						<label for="hours" class="small_description">HH</label>
 					</div>
@@ -53,7 +53,6 @@
 						<label for="minutes" class="small_description">MM</label>
 					</div>
 					<div>
->>>>>>> 8fd9c3cd8f50478bd489c52d4f40d9fbcc3e10e0
 						<select style="width:4em" id="ampm" name="ampm" class="">
 							<option value="AM">AM</option>
 							<option value="PM">PM</option>
@@ -61,7 +60,65 @@
 					</div>
 				</div>	
 			</div>
+			
+			<button onclick="submitDataFromForm()">Get help!</button> 
+			
+			<table id="helperTable" border>
+				<tr><th>Class</th><th>Name</th><th>Phone</th><th>Location</th><th>Time</th></tr>
+			</table>
 		</form>
 	</div>
+		<script>
+      var myDataRef = new Firebase('https://cyhelp.firebaseIO.com/');
+      $('#ampm').keypress(function (e) {
+        if (e.keyCode == 13) {
+          submitDataFromForm();
+        }
+      });
+      
+      function submitDataFromForm() {
+		  var name = $('#name').val();
+          var phoneFirst = $('#phone_0').val();
+          var phoneSecond = $('#phone_1').val();
+          var phoneThird = $('#phone_2').val();
+          
+          var phone = "(" + phoneFirst + ") " + phoneSecond + "-" + phoneThird;
+          
+          var loc = $('#location').val();
+          var classID = $('#class_id').val();
+          var hour = $('#hours').val();
+          var minute = $('#minutes').val();
+          
+          var e = document.getElementById("ampm");
+          var pmam = e.options[e.selectedIndex].value;
+          
+          myDataRef.push({name: name, phone: phone, loc: loc, classID: classID, hour: hour, minute: minute, pmam: pmam});
+          $('#name').val('');
+          $('#phone_0').val('');
+          $('#phone_1').val('');
+          $('#phone_2').val('');
+          $('#location').val('');
+          $('#class_id').val('');
+          $('#hours').val('');
+          $('#minutes').val('');
+          $('#ampm').val('');
+	  }
+      
+      myDataRef.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+		displayChatMessage(message.name, message.phone, message.loc, message.classID, message.hour, message.minute, message.pmam);
+      });
+      function displayChatMessage(name, phone, loc, classID, hour, minute, pmam) {
+		$('<tr>')
+			.append($('<td>').append(classID+'</td>'))
+			.append($('<td>').append(name+'</td>'))
+			.append($('<td>').append(phone +'</td>'))
+			.append($('<td>').append(loc +'</td>'))
+			.append($('<td>').append(hour+':'+minute+pmam+'</td>'))
+			.append('</tr>')
+			.appendTo($('#helperTable'));
+        //$('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+    </script>
 </body>
 </html>
