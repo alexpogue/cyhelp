@@ -9,3 +9,5 @@ Future work:
  * Only show recent group requests
  * Don't ask for phone numbers, provide an online messaging/chat service
  * Clean up code, and modularize
+
+Original authors: Alex Pogue, Alex Lende, Tony Dalhoff, Jason Herzog
