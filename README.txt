@@ -1,4 +1,5 @@
-MyHelp is a web app for students to find study groups for their classes. 
+MyHelp is a web app for students to find study groups for their classes. It is
+distributed under the MIT License (see LICENSE.txt).
 
 Disclaimer: this was a hackathon project, so it's pretty dead and ugly.
 
